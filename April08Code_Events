@@ -1,7 +1,7 @@
 ### Load the pace data
 import csv
 import pandas as pd
-df=pd.read_csv("C:/Users/Akshay/Desktop/Project/Unsorted_Pace_full.csv")
+df=pd.read_csv("C:/Users/Akshay/Desktop/Project/Sorted_full.csv")
 
 ### Isolate the pace column
 pace=df['Pace']
