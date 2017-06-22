@@ -29,14 +29,14 @@ def comar(csvfile):
             dcom.append(int(row[9]))
     return pcom,dcom
 
-
+###Main calling block.First comment out line no.37 to run 34, then comment out 34 to run 37.
 with open("C:/Users/Akshay/Desktop/Project/Taxi_Trips.csv",encoding='utf-8',newline='') as csvfile:
         pace,tst,tend=tpstmp(csvfile)
         """d = {'Start time stamp':tst, 'End time stamp': tend,'Pace':pace}
         df = pd.DataFrame(d)"""
         pcom,dcom=comar(csvfile)
 
-### To convert data to datetime format and then sort as per Start time stamp
+### To convert data to datetime format and then sort as per Start time stamp.Command Line arguments
 d = {'Start time stamp':tst, 'End time stamp': tend,'Pace':pace, 'Start Community Area':pcom, 'End Community Area': dcom}
 df = pd.DataFrame(d)
 df['Start time stamp'] = pd.to_datetime(df['Start time stamp'])
