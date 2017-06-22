@@ -34,13 +34,13 @@ def two(csvfile):
             dlon.append(float(row[21]))
     return plat,plon,dlat,dlon
 
-### Running line 39 and 40 alternately by first commenting out 40 to run 39 and then the other way round.
+### Running line 40 and 41 alternately by first commenting out 41 to run 40 and then the other way round.
 
 with open("C:/Users/Akshay/Desktop/Project/Taxi_Trips.csv",encoding='utf-8',newline='') as csvfile:
         """Stst,Etst,time,miles=one(csvfile)"""
         plat,plon,dlat,dlon=two(csvfile)
         
-###Command Line to convert line 39 and 40 to dataframe and export to csv
+###Command Line to convert line 40 and 41 to dataframe and export to csv
 d={"pickup_datetime":Stst,"dropoff_datetime":Etst,"trip_time_in_secs":time,"trip_distance":miles,"pickup_longitude":plon,"pickup_latitude":plat,"dropoff_longitude":dlon,"dropoff_latitude":dlat}
 df=pd.DataFrame(d)
 df.to_csv("C:/Users/Akshay/Desktop/Project/Loop_Trips.csv")
