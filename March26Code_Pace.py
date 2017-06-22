@@ -36,7 +36,9 @@ with open("C:/Users/Akshay/Desktop/Project/Taxi_Trips.csv",encoding='utf-8',newl
         df = pd.DataFrame(d)"""
         pcom,dcom=comar(csvfile)
 
-### To convert data to datetime format and then sort as per Start time stamp.Command Line arguments
+### Command Line arguments   
+
+### To convert data to datetime format and then sort as per Start time stamp
 d = {'Start time stamp':tst, 'End time stamp': tend,'Pace':pace, 'Start Community Area':pcom, 'End Community Area': dcom}
 df = pd.DataFrame(d)
 df['Start time stamp'] = pd.to_datetime(df['Start time stamp'])
