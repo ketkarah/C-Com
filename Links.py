@@ -48,15 +48,20 @@ ways=[doc for doc in data if doc["type"]=="way"]
 
 ###Create link dictionaries by considering and avoiding oneway links
 for way in ways:
-    nodeList=way["data"]["nd"]
-    N_nodes=len(nodeList)
-    for n in range(N_nodes-1):
-        start=nodeList[n]
-        end=nodeList[n+1]
-        ctr=addLink(start,end,ctr)
-        flag= ('data' in way) and ('tag' in way['data']) and ('oneway' in way['data']['tag']) and (way['data']['tag']['oneway']=='yes')
-        if (not flag):
-            ctr=ctr=addLink(end,start,ctr)
+    if way["data"]["tag"].get("building")==None and way["data"]["tag"].get("highway")!="pedestrian" and way["data"]["tag"].get("highway")!= None and way["data"]["tag"].get("highway")!="footway" and way["data"]["tag"].get("highway")!="steps" and way["data"]["tag"].get("highway")!="cycleway" and way["data"]["tag"].get("highway")!="elevator" and way["data"]["tag"].get("highway")!="residential":
+        nodeList=way["data"]["nd"]
+        N_nodes=len(nodeList)
+        for n in range(N_nodes-1):
+            start=nodeList[n]
+            end=nodeList[n+1]
+            ctr=addLink(start,end,ctr)
+            flag= ('data' in ways) and ('tag' in ways['data']) and ('oneway' in ways['data']['tag']) and (ways['data']['tag']['oneway']=='yes')
+            if (not flag):
+                ctr=ctr=addLink(end,start,ctr)
 StartLat,StartLon,EndLat,EndLon,link_id,Start_Node_id,End_Node_id=linkcsv(WayDict)
 
-###Also the above on line 60 were converted into a dataframe and exported to links.csv on Command Line
+###Command Line
+
+d={"link_id":link_id,"begin_node_id":Start_Node_id,"end_node_id":End_Node_id,"startX":StartLon,"startY":StartLat,"endX":EndLon,"endY":EndLat}
+df=pd.DataFrame(d)
+df.to_csv("C:/Users/Akshay/Desktop/Project/links2.csv")
