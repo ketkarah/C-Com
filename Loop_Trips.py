@@ -10,7 +10,7 @@ def one(csvfile):
     for row in b:
         if row[2]=='' or row[3]=='' or row[4]=='' or row[5]=='' or float(row[4])==0.0 or float(row[5])==0.0 or row[8]=='' or row[9]=='': 
             continue
-        elif int(row[8])==32.0 and int(row[9])==32:
+        elif int(row[8])==32 and int(row[9])==32:
             Stst.append(row[2])
             Etst.append(row[3])
             time.append(int(row[4]))
@@ -27,7 +27,7 @@ def two(csvfile):
     for row in b:
         if row[2]=='' or row[3]=='' or row[4]=='' or row[5]=='' or float(row[4])==0.0 or float(row[5])==0.0 or row[8]=='' or row[9]=='': 
             continue
-        elif int(row[8])==32.0 and int(row[9])==32:
+        elif int(row[8])==32 and int(row[9])==32:
             plat.append(float(row[17]))
             plon.append(float(row[18]))
             dlat.append(float(row[20]))
